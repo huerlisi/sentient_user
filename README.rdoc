@@ -1,16 +1,16 @@
 = sentient_user
 
-How many times have you needed access to the current user in your models?  It happens a lot if you aretrying to do some intelligent logging, if you want the models to control some aspect of their access, and so on.  This is easy hackery that you can find in blogs entries all over the web, but I wanted a nice package for it, for eseveral reasons:
+How many times have you needed access to the current user in your models?  It happens a lot if you are trying to do some intelligent logging, if you want the models to control some aspect of their access, and so on.  This is easy hackery that you can find in blogs entries all over the web, but I wanted a nice package for it, for several reasons:
 
 * There are several different ways this can be accomplished, but only the variation that uses Thread.local is safe for use in thread-safe rails.
 * Even the Thread.local is considered slightly hacky (but better than monkeypatching ActiveRecord::Base)
 * Should fashions change in this area in Rails' future, I want one place to change it, but I want to keep my methods working.
-* This concept generally breaks in the console, where there is no controller to set the user.  This gem adds a make_current method on the user instance, so you can choose to find a user and execute this method.  That could be really useful in rake tasks, for insntance.
+* This concept generally breaks in the console, where there is no controller to set the user.  This gem adds a make_current method on the user instance, so you can choose to find a user and execute this method.  That could be really useful in rake tasks, for instance.
 
 
 == Usage
-include SentientUser in your user model
-include SentientController in your application controller
+* include SentientUser in your user model
+* include SentientController in your application controller
 
 == Assumptions and limitations
 * Your user model is called 'User'.
